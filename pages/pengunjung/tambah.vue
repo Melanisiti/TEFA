@@ -18,7 +18,7 @@
               <div class="mb-3">
               <div class="row">
                 <div class="col-md-4">
-                  <select class="form-control form-control-lg form-select rounded-5 mb-2">
+                  <select v-model="form.tingkat" class="from-control form-control-lg form-select rounded-5 mb-2">
                     <option value="">TINGKAT</option>
                     <option value="X">X</option>
                     <option value="XI">XI</option>
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="col-md-4">
-                <select class="form-control form-control-lg form-select rounded-5 mb-2">
+                <select v-model="form.jurusan" class="form-control form-control-lg form-select rounded-5 mb-2">
                   <option value="">JURUSAN</option>
                   <option value="PPLG">PPLG</option>
                   <option value="TJKT">TJKT</option>
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="col-md-4">
-                  <select class="form-control form-control-lg form-select rounded-5 mb-2">
+                  <select v-model="form.kelas" class="form-control form-control-lg form-select rounded-5 mb-2">
                   <option value="">KELAS</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -56,8 +56,8 @@
               </select>
             </div>
 
-            <nuxt-link to="/pengunjung">
-            <button type="submit" class="btn btn-dark btn-lg rounded-5 px-5">KIRIM</button></nuxt-link>
+           
+            <button type="submit" class="btn btn-dark btn-lg rounded-5 px-5">KIRIM</button>
           </form>
         </div>
       </div>
@@ -71,13 +71,12 @@
   const objectives = ref([])
 
   const form = ref({
-    tanggal: "",
-    hari: "",
     nama: "",
     keanggotaan: "",
     jurusan: "",
     kelas: "",
-    keperluan: "",
+    tingkat:"",
+    keperluan: ""
   })
 
   const kirimData = async () => {
