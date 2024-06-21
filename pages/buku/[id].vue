@@ -17,12 +17,7 @@
     </div>
     <div class="row mt-5">
       <h2>Sinopsis</h2>
-      <p class="mt-3"> Pada awalnya Putri yang selalu mengumbar-ngumbar kedekatannya dengan Rio. 
-        Kedekatan itu hanya berlangsung di dunia maya. Dan sangat berbeda di dunia nyata. Mereka berdua jauh dari kata dekat.
-Setelah Putri, Nana juga merasakan hal yang sama. 
-Yang awalnya bahagia bisa dekat dengan Rio. 
-Namun, lagi-lagi kedekatan itu hanya di dunia maya dan bahkan hanya sementara saja. 
-Cerita tersebut sangat menguji pertemanan dua anak manusia yang dimabuk cinta tersebut.</p>
+      <p class="mt-3"> {{ buku.deskripsi }}</p>
     </div>
     <nuxt-link to="/buku">
       <button type="button" class="btn btn-dark mt-5">Kembali</button>

@@ -14,37 +14,39 @@
                 <option v-for="(member,i) in members" :key="i" :value="member.id">{{ member.nama }}</option>
               </select>
               </div>
+              <div class="mb" v-if="form.keanggotaan == 1">
 
-              <div class="mb-3">
-              <div class="row">
-                <div class="col-md-4">
-                  <select v-model="form.tingkat" class="from-control form-control-lg form-select rounded-5 mb-2">
-                    <option value="">TINGKAT</option>
-                    <option value="X">X</option>
-                    <option value="XI">XI</option>
-                    <option value="XII">XII</option>
-                </select>
-                </div>
-
-                <div class="col-md-4">
-                <select v-model="form.jurusan" class="form-control form-control-lg form-select rounded-5 mb-2">
-                  <option value="">JURUSAN</option>
-                  <option value="PPLG">PPLG</option>
-                  <option value="TJKT">TJKT</option>
-                  <option value="TSM">TSM</option>
-                  <option value="DKV">DKV</option>
-                  <option value="TOI">TOI</option>
+                <div class="mb-3">
+                <div class="row">
+                  <div class="col-md-4">
+                    <select v-model="form.tingkat" class="from-control form-control-lg form-select rounded-5 mb-2">
+                      <option value="">TINGKAT</option>
+                      <option value="X">X</option>
+                      <option value="XI">XI</option>
+                      <option value="XII">XII</option>
                   </select>
-                </div>
-
-                <div class="col-md-4">
-                  <select v-model="form.kelas" class="form-control form-control-lg form-select rounded-5 mb-2">
-                  <option value="">KELAS</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  </select>
+                  </div>
+  
+                  <div class="col-md-4">
+                  <select v-model="form.jurusan" class="form-control form-control-lg form-select rounded-5 mb-2">
+                    <option value="">JURUSAN</option>
+                    <option value="PPLG">PPLG</option>
+                    <option value="TJKT">TJKT</option>
+                    <option value="TSM">TSM</option>
+                    <option value="DKV">DKV</option>
+                    <option value="TOI">TOI</option>
+                    </select>
+                  </div>
+  
+                  <div class="col-md-4">
+                    <select v-model="form.kelas" class="form-control form-control-lg form-select rounded-5 mb-2">
+                    <option value="">KELAS</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
@@ -56,8 +58,10 @@
               </select>
             </div>
 
-           
-            <button type="submit" class="btn btn-dark btn-lg rounded-5 px-5">KIRIM</button>
+            <div class="d-flex justify-content-between">
+              <button type="submit" class="btn bg-primary btn-lg rounded-5 px-5"> KIRIM</button>
+              <nuxt-link to="/" class="btn btn-danger btn-lg rounded-5 px-5">KEMBALI</nuxt-link>
+            </div>
           </form>
         </div>
       </div>

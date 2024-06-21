@@ -10,7 +10,7 @@
         <table class="table">
           <thead>
             <tr>
-              <td>#</td>
+              <td>No</td>
               <td>NAMA</td>
               <td>KEANGGOTAAN</td>
               <td>WAKTU</td>
