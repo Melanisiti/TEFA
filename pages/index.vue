@@ -23,24 +23,25 @@
 
       <div class="row my-5">
       <div class="col-lg-6">
-          <div class="card pengunjung rounded-5">
-            <div class="card-body">
-              <h1>{{ jumlahp }}</h1>
+        <div class="card pengunjung rounded-5">
+          <div class="card-body">
+         
+            <h1>{{ jumlahp }}</h1>
             <h2>Pengunjung</h2>
-              </div>
+         
             </div>
-    
-        </div>
-        <div class="col-lg-6">
+          </div>
+  
+      </div>
+    <div class="col-lg-6">
 
-            <div class="card buku rounded-5">
-              <div class="card-body">
-                <h1 >{{ jumlahb }}</h1>
-                <h2 >Buku</h2>
-              </div>
-            </div>
-
+        <div class="card buku rounded-5">
+          <div class="card-body">
+            <h1 >{{ jumlahb }}</h1>
+            <h2 >Buku</h2>
+          </div>
         </div>
+    </div>
       </div>
     </div>
 </template>

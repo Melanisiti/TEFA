@@ -4,9 +4,11 @@
       <div class="col-lg-12">
         <h2 class="text-center my-4">RIWAYAT KUNJUNGAN</h2>
         <div class="my-3">
-          <input type="search" class="form-control form-control-lg rounded-5" placeholder="Filter...">
+          <form @submit.prevent="getPengunjung">
+            <input v-model="keyword" type="search" class="form-control form-control-lg rounded-4" placeholder="Filter..." />
+          </form>
         </div>
-        <div class="my-3 text-muted">menampilkan 1 dari 1</div>
+        <div class="my-3 text=muted">menampilkan {{ visitors.length }} dari {{ banyak }}</div>
         <table class="table">
           <thead>
             <tr>
@@ -29,23 +31,49 @@
         </table>
       </div>
     </div>
-    <nuxt-link to="/pengunjung/tambah">
-    <button type="button" class="btn btn-primary btn-lg mt-4">KEMBALI</button></nuxt-link>
+  </div>
+  <div class="d-flex justify-content-end">
+    <nuxt-link to="/" class="btn btn-danger btn-lg rounded-4 px-4 ms-auto">KEMBALI</nuxt-link>
   </div>
 </template>
 
 <script setup>
-const supabase = useSupabaseClient()
+useHead({
+  title: "PERPUS DIGITAL",
+  meta: [
+    {
+      name: "description",
+      content: "Halaman riwayat kunjungan",
+    },
+  ],
+});
+const supabase = useSupabaseClient();
 
-const visitors = ref([])
+const keyword = ref([]);
+
+const visitors = ref([]);
+
+const banyak = ref([]);
 
 const getPengunjung = async () => {
-  const {data, error} = await supabase.from('pengunjung').select('*,keanggotaan(*), keperluan(*)')
-  if(data) visitors.value = data
-}
+  const { data, error } = await supabase.from("pengunjung").select(`*,keanggotaan(*),keperluan(*)`).ilike("nama", `%${keyword.value}%`).order("id", { ascending: false });
+  if (data) visitors.value = data;
+};
+
+const banyakPengunjung = async () => {
+  const { data, count } = await supabase.from("pengunjung").select(`*`, { count: "exact" });
+  if (data) banyak.value = count;
+};
 
 onMounted(() => {
-  getPengunjung ()
-})
-
+  getPengunjung();
+  banyakPengunjung();
+});
 </script>
+
+<style scoped>
+.btn-light {
+  background-color: #5fd8fe !important;
+  box-shadow: 1px 1px 10px #5fd8fe !important;
+}
+</style>
